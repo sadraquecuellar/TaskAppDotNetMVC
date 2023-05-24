@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TasksWebAPP.Models.TarefaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="/css/StyleSheet.css">
+
+<p>
+    <a class="btn btn-primary" asp-controller="Tarefa" asp-action="Criar">Criar Nova</a>
+</p>
+<div>
+            
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Id</td>
+                    <td> @m.Name</td>
+                    <td> @m.Description</td>
+                    <td> @m.Status.</td>
+                    <td>
+                        <a asp-controller="Tarefa" asp-action="Editar" asp-route-id="@m.Id" class="btn btn-primary">Editar</a>
+                        <a asp-controller="Tarefa" asp-action="Delete" asp-route-id="@m.Id" class="btn btn-danger">Apagar</a>
+                        <a asp-controller="Tarefa" asp-action="Details" asp-route-id="@m.Id" class="btn btn-info">Detalhes</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+           
+</div>
+
+
+<script>
+
+</script>
